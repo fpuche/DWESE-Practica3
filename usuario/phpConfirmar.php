@@ -1,0 +1,11 @@
+<?php
+require '../require/comun.php';
+$id = Leer::get("id");
+$bd = new BaseDatos();
+$modelo = new ModeloUsuario($bd);
+$r = $modelo->activa($id);
+if ($r == 1) {
+    header("Location:viewLogin.php");
+} else {
+    header("Location:viewError.php?r=".$r);
+}
